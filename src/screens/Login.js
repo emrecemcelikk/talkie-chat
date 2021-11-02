@@ -46,10 +46,10 @@ export default function Login()  {
                 </View>
                 <View style={styles.box2}>
                     <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>Sign in</Text>
+                        <Text style={styles.buttonText}>sign in</Text>
                     </TouchableOpacity>
                     <View style={styles.welcomeArea}>
-                        <Text style={styles.welcomeText}>Welcome Back!</Text>
+                        <Text style={styles.welcomeText}>welcome back!</Text>
                     </View>
                 </View>
                 </ImageBackground>
