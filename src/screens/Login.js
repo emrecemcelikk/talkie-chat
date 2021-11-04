@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet,ImageBackground, TextInput, TouchableOpacity } from 'react-native'
 import {useFonts} from 'expo-font';
 
-
-export default function Login()  {
+export default function Login({navigation})  {
         const [loaded] = useFonts({
             MontserratBold: require('../../assets/fonts/Montserrat-Bold.ttf'),
             MontserratMedium: require('../../assets/fonts/Montserrat-Medium.ttf'),
@@ -38,10 +37,10 @@ export default function Login()  {
                             <View style={styles.line}></View>
                             <Text style={styles.subText}>Forgot Password</Text>
                         </View>
-                        <View>
+                        <TouchableOpacity onPress={()=> navigation.navigate('Signup')}>
                             <View style={styles.line}></View>
                             <Text style={styles.subText}>Sign up</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.box2}>
