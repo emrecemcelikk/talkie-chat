@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet,ImageBackground, TextInput, TouchableOpacity, SafeAreaView } from 'react-native'
 import {useFonts} from 'expo-font';
 
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 export default function Signup({navigation})  {
         const [loaded] = useFonts({
             MontserratBold: require('../../assets/fonts/Montserrat-Bold.ttf'),
@@ -24,19 +27,32 @@ export default function Signup({navigation})  {
                             <Text style={styles.subHeader}>Chat freely</Text>
                         </View>
                     </SafeAreaView>
+                    <Formik initialValues={{
+                        name:'',
+                        email:'',
+                        password:''
+                    }}  onsubmit={this._handleSubmit}>
+                    {({values,handleSubmit,handleChange})=>(
                     <View style={styles.box1}>
                         <View>
                             <View style={styles.welcomeArea}>
                                 <Text style={styles.welcomeText}>welcome stranger!</Text>
                             </View>
                             <View style={styles.inputArea}>
-                                <TextInput placeholder={'Your Name'} placeholderTextColor="#434343" style={styles.input}/>
+                                <TextInput placeholder={'Your Name'}
+                                 placeholderTextColor="#434343" style={styles.input}
+                                 values={values.name} onChangeText={handleChange('name')}/>
                             </View>
                             <View style={styles.inputArea}>
-                                <TextInput placeholder={'Your Email'} placeholderTextColor="#434343" style={styles.input}/>
+                                <TextInput placeholder={'Your Email'}
+                                 placeholderTextColor="#434343" style={styles.input}
+                                 values={values.email} onChangeText={handleChange('email')}/>
                             </View>
                             <View style={styles.inputArea}>
-                                <TextInput placeholder={'Password'} placeholderTextColor="#434343" style={styles.input}/>
+                                <TextInput placeholder={'Password'}
+                                 placeholderTextColor="#434343" style={styles.input}
+                                 values={values.password} onChangeText={handleChange('password')}
+                                 secureTextEntry={true}/>
                             </View>
                         </View>
                         <TouchableOpacity style={styles.textArea} onPress={()=> navigation.navigate('Login')}>
@@ -45,10 +61,11 @@ export default function Signup({navigation})  {
                                 <Text style={styles.subText}>Sign in</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={()=>handleSubmit()}>
                             <Text style={styles.buttonText}>sign up</Text>
                         </TouchableOpacity>
-                    </View>  
+                    </View>)}  
+                    </Formik>
             </SafeAreaView>
         )
     }

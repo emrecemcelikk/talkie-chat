@@ -2,17 +2,24 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet,ImageBackground, TextInput, TouchableOpacity } from 'react-native'
 import {useFonts} from 'expo-font';
 
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 export default function Login({navigation})  {
         const [loaded] = useFonts({
             MontserratBold: require('../../assets/fonts/Montserrat-Bold.ttf'),
             MontserratMedium: require('../../assets/fonts/Montserrat-Medium.ttf'),
             MontserratRegular: require('../../assets/fonts/Montserrat-Regular.ttf'),
             Pacifico: require('../../assets/fonts/Pacifico-Regular.ttf'),
-          });
+        });
           
-          if (!loaded) {
+        if (!loaded) {
             return null;
-          }
+        }
+
+        _handleSubmit =()=>{
+            
+        }
 
         return (
             <View style={styles.container} >
@@ -23,13 +30,24 @@ export default function Login({navigation})  {
                         <Text style={styles.subHeader}>Chat freely</Text>
                     </View>
                 </View>
+                <Formik initialValues={{
+                    email:'',
+                    password:'',
+                }} onSubmit={this._handleSubmit}>
+                {({values, handleSubmit,handleChange}) => (
+                <>
                 <View style={styles.box1}>
                     <View>
                         <View style={styles.inputArea}>
-                            <TextInput placeholder={'Your Email'} placeholderTextColor="#434343" style={styles.input}/>
+                            <TextInput placeholder={'Your Email'}
+                             placeholderTextColor="#434343" style={styles.input}
+                             values={values.email} onChangeText={handleChange('email')}/>
                         </View>
                         <View style={styles.inputArea}>
-                            <TextInput placeholder={'Password'} placeholderTextColor="#434343" style={styles.input}/>
+                            <TextInput placeholder={'Password'}
+                             placeholderTextColor="#434343" style={styles.input}
+                             values={values.password} onChangeText={handleChange('password')}
+                             secureTextEntry={true}/>
                         </View>
                     </View>
                     <View style={styles.textArea}>
@@ -44,13 +62,16 @@ export default function Login({navigation})  {
                     </View>
                 </View>
                 <View style={styles.box2}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={()=>handleSubmit()}>
                         <Text style={styles.buttonText}>sign in</Text>
                     </TouchableOpacity>
                     <View style={styles.welcomeArea}>
                         <Text style={styles.welcomeText}>welcome back!</Text>
                     </View>
                 </View>
+                </>)
+                }
+                </Formik>
                 </ImageBackground>
             </View>
         )

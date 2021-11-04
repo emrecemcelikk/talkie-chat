@@ -19,6 +19,10 @@ const Header =() => {
                 <Text style={styles.logo}>talkie</Text>
                 <Text style={styles.header}>chats</Text>
             </View>  
+            <View style={styles.subNav}>
+                <Text style={styles.subNavText}>Messages</Text>
+                <Text style={styles.subNavText}>Calls</Text>
+            </View>
         </View>
     )
 }
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor:'#FFB319',
         width:'100%',
-        height:'20%'
+        height:'22%'
     },
     header: {
         fontSize:50,
@@ -43,7 +47,18 @@ const styles = StyleSheet.create({
     headerContainer: {
         margin:33,
         flexDirection:'column',
+    },
+    subNav: {
+        flexDirection:'row',
+        marginHorizontal:15,
+        bottom:20
+    },
+    subNavText: {
+        fontSize:18,
+        fontFamily:'MontserratRegular',
+        marginHorizontal:15
     }
+
 })
 
 
