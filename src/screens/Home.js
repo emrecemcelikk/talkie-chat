@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, ScrollView } from 'react-native'
+import { StyleSheet, SafeAreaView, ScrollView, View } from 'react-native'
 import {useFonts} from 'expo-font';
 import Header from '../components/Header';
 import ChatComponent from '../components/ChatComponent';
@@ -19,7 +19,7 @@ export default function Home()  {
   }
 
   return(
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header/>
       <ScrollView>
         {initialMessages.map((item)=>{
@@ -28,7 +28,7 @@ export default function Home()  {
           )
         })}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   )
 }  
 

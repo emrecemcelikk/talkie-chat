@@ -49,9 +49,10 @@ const styles = StyleSheet.create({
         flexDirection:'column',
     },
     subNav: {
+        position:'absolute',
         flexDirection:'row',
         marginHorizontal:15,
-        bottom:20
+        bottom:2
     },
     subNavText: {
         fontSize:18,
