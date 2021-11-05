@@ -49,7 +49,7 @@ export  default function Settings() {
                         <Text style={styles.usernameText}>Emre Cem Çelik</Text>
                     </View>
                     <View style={styles.about}>
-                        <Text style={styles.aboutText}>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</Text>
+                        <Text style={styles.aboutText}>Lorem ipsum dolor dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</Text>
                     </View>
                 </View>
                 <ScrollView style={styles.settingsContainer}>
