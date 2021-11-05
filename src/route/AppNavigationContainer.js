@@ -17,9 +17,9 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-function AppStack() {
+function TabStack() {
   return (
-    <Tab.Navigator initialRouteName="Home" screenOptions={{headerShown:false, tabBarShowLabel:false, tabBarStyle:{position:'absolute', backgroundColor:'#B8DFD8', borderTopStartRadius:30,borderTopEndRadius:30, height:80 }}}>
+    <Tab.Navigator initialRouteName="Home" screenOptions={{headerShown:false, tabBarShowLabel:false, tabBarStyle:{position:'absolute', backgroundColor:'#B8DFD8', borderTopStartRadius:15,borderTopEndRadius:15, height:60 }}}>
         <Tab.Screen name="Friends" component={Friends}
          options={{ headerShown:false, tabBarActiveTintColor:'#000000',
         tabBarIcon:({color})=> <Icon name="people" type="ionicon" color={color} size={33}/> }}/>
@@ -39,10 +39,10 @@ export default class AppNavigationContainer extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="AppStack" screenOptions={{headerShown:false}}>
+                <Stack.Navigator initialRouteName="TabStack" screenOptions={{headerShown:false}}>
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="Signup" component={Signup} /> 
-                    <Stack.Screen name="AppStack" component={AppStack} />
+                    <Stack.Screen name="TabStack" component={TabStack} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

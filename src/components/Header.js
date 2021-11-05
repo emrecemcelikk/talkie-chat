@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import {useFonts} from 'expo-font';
 
-const Header =() => {
+const Header =(props) => {
     const [loaded] = useFonts({
         MontserratBold: require('../../assets/fonts/Montserrat-Bold.ttf'),
         MontserratMedium: require('../../assets/fonts/Montserrat-Medium.ttf'),
@@ -17,12 +17,17 @@ const Header =() => {
         <View style={styles.container}>
             <View style={styles.headerContainer}>
                 <Text style={styles.logo}>talkie</Text>
-                <Text style={styles.header}>chats</Text>
-            </View>  
-            <View style={styles.subNav}>
-                <Text style={styles.subNavText}>Messages</Text>
-                <Text style={styles.subNavText}>Calls</Text>
-            </View>
+                <Text style={styles.header}>{props.header}</Text>
+            </View> 
+            {props.showNav ?  
+            
+                <View style={styles.subNav}>
+                    <Text style={styles.subNavText}>Messages</Text>
+                    <Text style={styles.subNavText}>Calls</Text>
+                </View>
+                : <></> 
+            }
+            
         </View>
     )
 }
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
         fontSize:50,
         fontFamily:'MontserratBold',
         letterSpacing:-4,
-        marginTop:-20,
+        marginTop:-18,
     },
     logo: {
         fontSize:20,
@@ -45,7 +50,7 @@ const styles = StyleSheet.create({
         
     },
     headerContainer: {
-        margin:33,
+        margin:32,
         flexDirection:'column',
     },
     subNav: {

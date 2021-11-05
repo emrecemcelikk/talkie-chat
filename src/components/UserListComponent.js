@@ -1,24 +1,20 @@
-import React, { Component } from 'react'
-import { Text, View,Image, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text, Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native'
 
-const ChatComponent =(props)=> {
-
-    return (
+const UserListComponent =(props)=> {
+    return(
         <TouchableOpacity style={styles.container}>
             <View style={styles.profilePic}>
                 <Image style={styles.profilePic} source={props.pp} resizeMode="cover"/>
             </View>
             <View style={styles.textArea}>
                 <Text style={styles.username}>{props.username}</Text>
-                <Text style={styles.message}>{props.message}</Text>
+                <Text style={styles.message}>{props.about}</Text>
             </View>
-            <Text style={styles.time}>{props.time}</Text>
         </TouchableOpacity>
     )
 }
-
-
-export default ChatComponent;
+export default UserListComponent;
 
 const styles = StyleSheet.create({
     profilePic: {

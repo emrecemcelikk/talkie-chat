@@ -20,7 +20,7 @@ export default function Home()  {
 
   return(
     <View style={styles.container}>
-      <Header/>
+      <Header showNav={true} header={'chats'}/>
       <ScrollView>
         {initialMessages.map((item)=>{
           return(
@@ -37,7 +37,4 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor:'#E8F6EF',
     },
-    text: {
-        fontSize:25,
-    }
 })
